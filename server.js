@@ -1,3 +1,4 @@
+const { error } = require("console");
 const express = require("express"); //importerar Express ramverket för att bygga servern.
 
 const sqlite3 = require("sqlite3").verbose();//importerar sqlite3 paketet för att kunna prarta med darabasen och verbose() ger oss mer detaljerande felmedelanden.
@@ -40,4 +41,18 @@ db.run(createTableSql, (err) => {
 app.listen(port, () =>{
     console.log(`Servern är startad och lyssnar nu på http://localhost:${port}`);
 
+});
+
+
+
+app.get("/recipes", (req,res) => {
+    const sql = "SELECT * FROM recipes"; //detta är sql fråga för att hämta allt från tabellen
+
+    db.all(sql,[], (err,rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message});
+            return;
+        }
+        res.json(rows);
+    });
 });
