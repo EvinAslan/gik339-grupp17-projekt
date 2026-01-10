@@ -29,7 +29,7 @@ const createTableSql =
 
 `;
 
-
+//detta db.run() används för kommandon som inte returnerar data.
 db.run(createTableSql, (err) => {
     if (err){
         console.error("Fel vid skapande av tabell:", err.message);
@@ -38,6 +38,7 @@ db.run(createTableSql, (err) => {
 });
 
 
+//detta talar om för servern att börja lyssna efter förfrågningar på den port vi definerade.
 app.listen(port, () =>{
     console.log(`Servern är startad och lyssnar nu på http://localhost:${port}`);
 
