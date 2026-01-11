@@ -8,8 +8,38 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js" defer></script>
+    <h1>Min Receptsamling</h1>
+
+    <form id="recipe-form">
+        <h2 id="form-title">Lägg till nytt recept</h2>
+        <input type="hidden" id="resource-id">
+
+        <label for="namn">Namn på recept</label><br>
+        <input type="text" id="namn" required><br><br>
+
+        <label for="kategori">Kategori</label><br>
+        <input type="text" id="kategori"><br><br>
+
+        <label for="tid_minuter">Tid (minuter)</label><br>
+        <input type="number" id="tid_minuter"><br><br>
+
+        <label for="svarighetsgrad">Svårighetsgrad</label><br>
+        <select id="svarighetsgrad">
+            <option value="Lätt">Lätt</option>
+            <option value="Medel">Medel</option>
+            <option value="Svår">Svår</option>
+        </select><br><br>
+
+        <button type="submit">Spara Recept</button>
+    </form>
+
+    <hr> <h2>Vårt Recept</h2>
+    <div id="recipe-list">
+        </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js" defer></script>
+    
 </body>
 </html>
