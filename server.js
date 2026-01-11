@@ -59,7 +59,7 @@ app.post("/recipes", (req,res) => {
     const sql = "INSERT INTO recipes (namn, kategori, tid_minuter, svarighetsgrad) VALUES (?, ?, ?, ?)";
     db.run(sql, [namn, kategori, tid_minuter, svarighetsgrad], function(err) {
         if (err) {
-            req.status(500).json({ error: err.message});
+            res.status(500).json({ error: err.message});
             return;
         }
         res.status(201).json({ id: this.lastID});
@@ -68,9 +68,35 @@ app.post("/recipes", (req,res) => {
 });
 
 
+
+//uppdaterar ett befintligt recept
 app.put("/recipes", (req,res) => {
     const { id, namn, kategori, tid_minuter, svarighetsgrad} = req.body;
-    const sql =`UPDATE recipes SET namn = ?, kategori = ?`
+    const sql =`UPDATE recipes SET namn = ?, kategori = ?, tid_minuter = ?, svarighetsgrad = ? WHERE id = ?`;
+    db.run(sql,[namn, kategori, tid_minuter, svarighetsgrad, id], function(err){
+        if (err) {
+            res.status(500).json({ error:message});
+            return;
+        }
+        res.json({ message: "Recept uppdaterat"});
+
+    });
+});
+
+
+// den tar bort  ett befintligt recept
+app.delete("/recipes/:id", (req, res) => {
+    const id = req.params.id;
+    const sql = "DELETE FROM recipes WHERE id = ?";
+    db.run(sql, id, function (err) {
+        if (err) {
+            res.status(500).json({error: err.message});
+            return;
+        }
+        res.json({ message: "Recept raderat"});
+
+    });
+
 });
 
 //detta talar om för servern att börja lyssna efter förfrågningar på den port vi definerade.
