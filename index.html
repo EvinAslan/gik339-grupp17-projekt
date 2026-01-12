@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,23 +20,23 @@
                         <h2 id="form-title" class="h5 mb-3">Lägg till nytt recept:</h2>
                         <input type="hidden" id="resource-id">
                         <div class="mb-3">
-                            <label for="namn" class="from-label">Namn på recept</label>
+                            <label for="namn" class="form-label">Namn på recept</label>
                             <input type="text" class="form-control" id="namn" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="kategori" class="form-label">Kategori</label>
-                            <input type="text" id="kategori" class="form-control" placeholer="t.ex. Vardagasmat, Efterrätt"/>
+                            <input type="text" id="kategori" class="form-control" placeholder="t.ex. Vardagsmat, Efterrätt"/>
                         </div>
 
                         <div class="mb-3">
                             <label for="tid_minuter" class="form-label">Tid (minuter)</label>
-                            <input type="number" id="tid_minuter" calss="form-control" min="0"/>
+                            <input type="number" id="tid_minuter" class="form-control" min="0"/>
                         </div>
 
                         <div class="mb-3">
                             <label for="svarighetsgrad" class="form-label">Svårighetsgrad</label>
-                            <select id="svarighetsgrad" class="from-select">
+                            <select id="svarighetsgrad" class="form-select">
                                 <option value="Lätt">Lätt</option>
                                 <option value="Medel">Medel</option>
                                 <option value="Svår">Svår</option>
@@ -68,7 +68,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="feedback-modal-title">Meddelande</h5>
-                    <button type="button" class="btn btn-seconndary" data-bs-dismiss="modal">Stäng</button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Stäng"></button>
+                </div>
+                <div class="modal-body" id="feedback-modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Stäng</button>
+
                 </div>
             </div>
         </div>
@@ -81,7 +88,7 @@
             </div>
             <div class="btn-group btn-group-sm" role="group" aria-label="Åtgärder">
                 <button type="button" class="btn btn-outline-primary recipe-edit">Ändra</button>
-                <button type="button" class="btn btn-outline-primary recipe-delete">Ta bort</button>
+                <button type="button" class="btn btn-outline-danger recipe-delete">Ta bort</button>
             </div>
         </div>
     </template>
