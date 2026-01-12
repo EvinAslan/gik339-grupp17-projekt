@@ -75,7 +75,7 @@ app.put("/recipes", (req,res) => {
     const sql =`UPDATE recipes SET namn = ?, kategori = ?, tid_minuter = ?, svarighetsgrad = ? WHERE id = ?`;
     db.run(sql,[namn, kategori, tid_minuter, svarighetsgrad, id], function(err){
         if (err) {
-            res.status(500).json({ error:message});
+            res.status(500).json({ error:err.message});
             return;
         }
         res.json({ message: "Recept uppdaterat"});
