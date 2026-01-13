@@ -1,13 +1,18 @@
 
+const cors = require("cors");
 const express = require("express"); //importerar Express ramverket för att bygga servern.
 
 const sqlite3 = require("sqlite3").verbose();//importerar sqlite3 paketet för att kunna prarta med darabasen och verbose() ger oss mer detaljerande felmedelanden.
 
 const app = express();//skapar en instans av en Express applikation och "app" är nu vår server.
 
+app.use(cors({
+  origin: ["http://127.0.0.1:5500", "http://localhost:5500"],
+}));
 const port = 3000; //detta väljer vilken port servern ska lyssna på och 3000 är en vanlig port för utveckling.
 
 app.use(express.json());
+app.use(express.static("public"));
 
 //Detta skapar en anslutning till en databasfil som heter recipes.db.
 const db = new sqlite3.Database("./recipes.db", (err) => {
@@ -37,7 +42,17 @@ db.run(createTableSql, (err) => {
     console.log("Tabellen recipes är redo.");
 });
 
+db.all("PRAGMA table_info(recipes)", (err, columns) => {
+  if (err) return console.log(err.message);
 
+  const hasSvar = columns.some(c => c.name === "svarighetsgrad");
+  if (!hasSvar) {
+    db.run("ALTER TABLE recipes ADD COLUMN svarighetsgrad TEXT", (err2) => {
+      if (err2) console.log(err2.message);
+      else console.log("Kolumnen svarighetsgrad lades till.");
+    });
+  }
+});
 
 app.get("/recipes", (req,res) => {
     const sql = "SELECT * FROM recipes"; //detta är sql fråga för att hämta allt från tabellen

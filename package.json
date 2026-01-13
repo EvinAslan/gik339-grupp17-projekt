@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/EvinAslan/gik339-grupp17-projekt#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.2.1",
     "sqlite3": "^5.1.7"
   }
