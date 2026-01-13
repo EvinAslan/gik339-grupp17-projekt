@@ -1,11 +1,12 @@
 body{
     background-image: url("recept_bild.webp");
-    .fancy-title{
-        font-family: cursive;
-        font-weight:bolder ;
-
-    }
+   
    
     
 
 }
+ .fancy-title{
+        font-family: cursive;
+        font-weight:bolder ;
+
+    }
