@@ -9,7 +9,7 @@ const idField = document.grtElementById("resource-id");
 const namnInput = document.getElementById("namn");
 const kategoriInput = document.getElemnetById("kategori");
 const tidInput = document.getElemnetById("tid_minuter");
-const svarSelect = document.getElemnetById("svarighetsgrad");
+const svarSelect = document.getElemnetById("svarighetsgrad"); //test
 
 const clearBtn = document.getElemnetById("clear-form-btn");
 
