@@ -2,14 +2,14 @@ const API_URL = "http://localhost:3000/recipes";
 console.log("script.js laddat OK");
 
 const form = document.getElementById("recipe-form");
-concole.log("FORM HITTAD?",form);
-const formTitle = document.getElementById("from-title");
+console.log("FORM HITTAD?", form);
+const formTitle = document.getElementById("form-title");
 const idField = document.grtElementById("resource-id");
 
 const namnInput = document.getElementById("namn");
 const kategoriInput = document.getElemnetById("kategori");
 const tidInput = document.getElemnetById("tid_minuter");
-const svarSelect = document.getElemnetById("svarighetsgard");
+const svarSelect = document.getElemnetById("svarighetsgrad");
 
 const clearBtn = document.getElemnetById("clear-form-btn");
 
