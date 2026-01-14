@@ -1,4 +1,4 @@
-const API_URL ="http://localhost:3000/recipes";
+const API_URL = "http://localhost:3000/recipes";
 console.log("script.js laddat OK");
 
 const form = document.getElementById("recipe-form");
@@ -80,7 +80,8 @@ function renderRecipes(recipes){
 
      const tidtext = (r.tid_minuter === null || r.tid_minuter === undefined) ? "?" : r.tid.minuter;
      clone.querySelector(".recipe-meta").textContent =
-       ${r.karegori || "Ingen kartegori"} • ${tidText} min • ${r.svarighetsgrad || "?"};
+       
+     `${r.karegori || "Ingen kartegori"} • ${tidText} min • ${r.svarighetsgrad || "?"}`;
      const item = clone.querySelector(".list-group-item");
      item.dataset.id = r.id;
 
@@ -110,7 +111,7 @@ function renderRecipes(recipes){
             showModal("Borttagen", data.message || "Recetet togs bort.");
             await fetchAndRender();
           }catch (err) {
-            showModal("fel"; err.message);
+            showModal("Fel", err.message);
           }
     
         });
