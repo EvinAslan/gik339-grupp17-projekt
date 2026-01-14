@@ -73,6 +73,7 @@ function getFormData() {
 // Visar recepten i listan på sidan 
 
 function renderRecipes(recipes) {
+    mount.innerHTML = "";
     
     // om listan är töm eller inte är en array 
     if (!Array.isArray(recipes) || recipes.length === 0) {
