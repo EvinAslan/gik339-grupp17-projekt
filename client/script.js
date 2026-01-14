@@ -1,5 +1,5 @@
 // Adressen till API:et där recepten lagras
-const API_URL = "http://localhost:3000/recipes";
+const API_URL = "/recipes";
 // Skriver i konsolen att scriptet har laddats
 console.log("script.js laddat OK");
 
@@ -73,10 +73,10 @@ function getFormData() {
 // Visar recepten i listan på sidan 
 
 function renderRecipes(recipes) {
-    mount.innerHTML = ""; //Tömmer listan först 
+    
     // om listan är töm eller inte är en array 
     if (!Array.isArray(recipes) || recipes.length === 0) {
-         mount.appendChild(emptyState); // Visar inga recept
+         mount.innerHTML = `<p class="text-secondary mb-0" id="empty-state">Inga recept laddade ännu.</p>`; 
          countBadge.textContent = "0 st"; // Uppdaterar antal 
          return; // Avslutar funktionen 
     };

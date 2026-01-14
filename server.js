@@ -3,16 +3,12 @@ const cors = require("cors");
 const express = require("express"); //importerar Express ramverket för att bygga servern.
 
 const sqlite3 = require("sqlite3").verbose();//importerar sqlite3 paketet för att kunna prarta med darabasen och verbose() ger oss mer detaljerande felmedelanden.
-
+const path = require("path");
 const app = express();//skapar en instans av en Express applikation och "app" är nu vår server.
-
-app.use(cors({
-  origin: ["http://127.0.0.1:5500", "http://localhost:5500"],
-}));
 const port = 3000; //detta väljer vilken port servern ska lyssna på och 3000 är en vanlig port för utveckling.
 
 app.use(express.json());
-app.use(express.static("."));
+app.use(express.static(path.join(__dirname, "client")));
 
 //Detta skapar en anslutning till en databasfil som heter recipes.db.
 const db = new sqlite3.Database("./recipes.db", (err) => {
