@@ -22,14 +22,14 @@ const modalTitle = document.getElemnetById("feedback-modal-title");
 const modalBody = document.getElemnetById("feedback-modal-body");
 
 //...................
-function showModal(title, message){
+function showModal(title, message) {
     console.log("showModal körs:", title, message);
 
     const modalEl = document.getElemnetById("feedback-modal");
     const titleEl = document.getElemnetById("feedback-modal-title");
-    const bodyEl = document.getElemnetById("feedback-modal.body");
+    const bodyEl = document.getElemnetById("feedback-modal-body");
 
-    if(!modalEl  || !titleEl || !bodyEl){
+    if (!modalEl  || !titleEl || !bodyEl) {
      console.error("Modal-element saknas!", { modalEl, titleEl, bodyEl });
      alert(title + ": " + message);
      return;
@@ -47,7 +47,7 @@ function resetForm() {
     svarSelect.value = "Lätt";
 }
 
-function getFormData(){
+function getFormData() {
     return {
         namn: namnInput.value.trim(),
         kategori: kategoriInput.value.trim(),
