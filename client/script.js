@@ -1,6 +1,6 @@
 // Adressen till API:et där recepten lagras
 const API_URL = "/recipes";
-// Skriver i konsolen att scriptet har laddats
+// Skriver i konsolen att scriptet har laddats.
 console.log("script.js laddat OK");
 
 //hämtar formuläret från HTML
