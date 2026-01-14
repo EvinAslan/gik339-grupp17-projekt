@@ -6,7 +6,7 @@ const sqlite3 = require("sqlite3").verbose();//importerar sqlite3 paketet för a
 const path = require("path");
 const app = express();//skapar en instans av en Express applikation och "app" är nu vår server.
 const port = 3000; //detta väljer vilken port servern ska lyssna på och 3000 är en vanlig port för utveckling.
-
+app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "client")));
 

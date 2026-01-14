@@ -1,5 +1,5 @@
 // Adressen till API:et där recepten lagras
-const API_URL = "/recipes";
+const API_URL = "http://localhost:3000/recipes";
 // Skriver i konsolen att scriptet har laddats.
 console.log("script.js laddat OK");
 
