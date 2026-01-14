@@ -196,3 +196,4 @@ clearBtn.addEventListener("click", resetForm);
 
 //Start: hämta listen när sidan laddas
 fetchAndRender();
+
