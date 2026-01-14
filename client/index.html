@@ -7,9 +7,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-body-tertiary">
-    <main class="container py-4">
-        <header class="mb-4 text-center">
+<body class="bg-body-tertiary"> <!-- Bootstrap backgrund -->
+    <main class="container py-4"><!-- Innehållet på sidan -->
+        <header class="mb-4 text-center"> <!--Sidans rubrik -->
             <div class="card mx-auto" style="max-width: 50rem;">
                 <div class="card-body py-3">
                     <h1 class="mb-2 fancy-title">Min Receptsamling</h1>
@@ -18,27 +18,32 @@
             </div>
       
         </header>
+        <!--Layout med två kolumner -->
         <div class="row g-4">
+            <!-- Förmulär för att lägga till eller ändra recept -->
             <div class="col-md-5 col-12">
                 <form id="recipe-form" class="card ">
                     <div class="card-body">
                         <h2 id="form-title" class="h5 mb-3">Lägg till nytt recept:</h2>
+                        <!-- Dold input som sparar id när man ändrar -->
                         <input type="hidden" id="resource-id">
+                        <!--Fält för receptets namn-->
                         <div class="mb-3">
                             <label for="namn" class="form-label">Namn på recept</label>
                             <input type="text" class="form-control" id="namn" required>
                         </div>
-
+                        <!-- Fält för kategori -->
                         <div class="mb-3">
                             <label for="kategori" class="form-label">Kategori</label>
                             <input type="text" id="kategori" class="form-control" placeholder="t.ex. Vardagsmat, Efterrätt"/>
                         </div>
 
+                        <!--Fält för tid  -->
                         <div class="mb-3">
                             <label for="tid_minuter" class="form-label">Tid (minuter)</label>
                             <input type="number" id="tid_minuter" class="form-control" min="0"/>
                         </div>
-
+                         <!--  Välj svårighetsgrad -->
                         <div class="mb-3">
                             <label for="svarighetsgrad" class="form-label">Svårighetsgrad</label>
                             <select id="svarighetsgrad" class="form-select">
@@ -47,7 +52,7 @@
                                 <option value="Svår">Svår</option>
                             </select>
                         </div>
-
+                        <!-- här våra knappar --> 
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-primary">Spara Recept</button>
                             <button type="button" class="btn btn-outline-secondary" id="clear-form-btn">Rensa</button>
@@ -55,19 +60,20 @@
                    </div>
                 </form>
             </div>
-
+             <!-- Här visas recepten -->
             <div class="col-12 col-md-7">
                 <div class="card  mb-3">
                     <h2 class="mb-4 text-center fancy-title">Mina Recept</h2> 
                     <span class="badge text-bg-primary" id="recipe-count" aria-live="polite">0 st</span>
                 </div>
-
+                <!-- Lista där recepten hamnar -->
                 <div id="recipe-list-mount" class="border rounded-3 bg-white p-3 ">
                     <p class="text-secondary mb-0" id="empty-state">Inga recept laddade ännu.</p>
                 </div>
             </div>
         </div>
     </main>
+    <!-- Popup meddelande (modal) -->
     <div class="modal fade" id="feedback-modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -85,6 +91,7 @@
             </div>
         </div>
     </div>
+    <!-- Mall för ett recept i listan -->
     <template id="recipe-item-template">
         <div class="list-group-item d-flex justify-content-between align-items-start gap-3">
             <div class="me-auto">
@@ -97,8 +104,9 @@
             </div>
         </div>
     </template>
-
+     <!-- Laddar Bootstrap javascript så att funktioner som modal(popup), knappar och andra intraktiva delar fungerar -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> 
+    <!-- och här eget javascript -->
     <script src="script.js"></script>
 </body>
 </html>
