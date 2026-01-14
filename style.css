@@ -1,6 +1,6 @@
 body{
-    background-image: url("recept_bild.webp");
-   
+  background-image: url("recept_bild.webp");
+  
    
     
 
@@ -15,27 +15,9 @@ body{
 .difficulty-medium { border-left: 0.8rem solid yellow; }
 .difficulty-hard   { border-left: 0.8rem solid red; }
 
-    /*item.classList.remove("difficulty-easy", "difficulty-medium", "difficulty-hard");
-    if (r.svarighetsgrad === "Lätt") item.classList.add("difficulty-easy");
-    else if (r.svarighetsgrad === "Medel") item.classList.add("difficulty-medium");
-    else if (r.svarighetsgrad === "Svår") item.classList.add("difficulty-hard");*/
+   
     
-/*let feedbackModal;
-function showModal(title, message) {
-  
-
-  const modalEl = document.getElementById("feedback-modal");
-  const titleEl = document.getElementById("feedback-modal-title");
-  const bodyEl  = document.getElementById("feedback-modal-body");
-  
-  titleEl.textContent = title;
-  bodyEl.textContent = message;
 
 
-  if (!feedbackModal) {
-    feedbackModal = new bootstap.Modal(modalEl);
-  }
 
-  feedbackModal.show();
-}*/
 
